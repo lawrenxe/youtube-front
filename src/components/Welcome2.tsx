@@ -63,7 +63,7 @@ function Welcome2() {
             Click <span className="font-medium">Next Step</span> and You are
             ready to go!
           </h2>
-          <h2>
+          <h2 className="text-left">
             It might take up to 1 day for you to get the raw data from Google.
             That is all we need to get your analytics. We are waiting for you to
             come back.
