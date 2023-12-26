@@ -5,6 +5,7 @@ import WelcomeCarousel from "./components/WelcomeCarousel";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnnualHistory, MonthCount } from "./hooks/services";
+import { Line, LineChart, Tooltip, XAxis } from "recharts";
 
 interface ARProps {
   annualHistory: AnnualHistory | null;
@@ -63,38 +64,25 @@ function AnnualReport({ annualHistory }: ARProps) {
         must be a special month for you. You have watched{" "}
         {annualHistory?.count_item_by_month[0].count} videos in this month.
       </p>
-      {/* {annualHistory?.count_item_by_month && (
+      {annualHistory?.count_item_by_month && (
         <LineChart
-          xAxis={[
-            {
-              data: [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec",
-              ],
-            },
-          ]}
-          series={[
-            { data: getMonthCounts(annualHistory?.count_item_by_month) },
-          ]}
-        />
-      )} */}
+          width={730}
+          height={250}
+          data={getMonthCounts(annualHistory?.count_item_by_month)}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis dataKey="month" />
+          <Line type="monotone" dataKey="count" stroke="#8884d8" />
+          <Tooltip />
+        </LineChart>
+      )}
     </>
   );
 }
 
-const getMonthCounts = (monthCount: MonthCount[]): number[] => {
+const getMonthCounts = (monthCount: MonthCount[]): MonthCount[] => {
   monthCount.sort((a, b) => a.month - b.month);
-  return monthCount.map((mc) => mc.count);
+  return monthCount;
 };
 
 function App() {
