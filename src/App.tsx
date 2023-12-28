@@ -4,7 +4,7 @@ import WelcomeCarousel from "./components/WelcomeCarousel";
 
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AnnualHistory, MonthCount } from "./hooks/services";
+import { AnnualHistory, HourCount, MonthCount } from "./hooks/services";
 import { Line, LineChart, Tooltip, XAxis } from "recharts";
 
 interface ARProps {
@@ -59,7 +59,7 @@ function AnnualReport({ annualHistory }: ARProps) {
       <p>
         {annualHistory?.count_item_by_month[0].month &&
           Intl.DateTimeFormat("en", { month: "long" }).format(
-            new Date(annualHistory?.count_item_by_month[0].month),
+            new Date(annualHistory?.count_item_by_month[0].month.toString()),
           )}{" "}
         must be a special month for you. You have watched{" "}
         {annualHistory?.count_item_by_month[0].count} videos in this month.
@@ -76,13 +76,44 @@ function AnnualReport({ annualHistory }: ARProps) {
           <Tooltip />
         </LineChart>
       )}
+      {annualHistory?.count_items_by_timeperiod[0].time_period && (
+        <p>
+          You are most active at{" "}
+          {annualHistory?.count_items_by_timeperiod[0].time_period}:00 -{" "}
+          {annualHistory?.count_items_by_timeperiod[0].time_period + 4}:00. You
+          watched {annualHistory?.count_item_by_hour[0].count} videos during the
+          time_period {annualHistory.count_item_by_hour[0].hour}:00 -{" "}
+          {annualHistory.count_item_by_hour[0].hour + 1}:00, that means, you
+          watched {annualHistory.count_item_by_hour[0].count / 365} every day on
+          average during this hour.
+        </p>
+      )}
+      {annualHistory?.count_item_by_hour && (
+        <LineChart
+          width={730}
+          height={250}
+          data={getHourCounts(annualHistory?.count_item_by_hour)}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis dataKey="hour" />
+          <Line type="monotone" dataKey="count" stroke="#8884d8" />
+          <Tooltip />
+        </LineChart>
+      )}
     </>
   );
 }
 
 const getMonthCounts = (monthCount: MonthCount[]): MonthCount[] => {
-  monthCount.sort((a, b) => a.month - b.month);
-  return monthCount;
+  const sortedMonthCount = [...monthCount];
+  sortedMonthCount.sort((a, b) => a.month - b.month);
+  return sortedMonthCount;
+};
+
+const getHourCounts = (hourCount: HourCount[]): HourCount[] => {
+  const sortedHourCount = [...hourCount];
+  sortedHourCount.sort((a, b) => a.hour - b.hour);
+  return sortedHourCount;
 };
 
 function App() {

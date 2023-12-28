@@ -5,12 +5,14 @@ export type TitleCount = {
   title: string;
   count: number;
   title_url: string;
+  title_id: string;
 };
 
 export type ChannelCount = {
   channelUrl: string;
   channel: string;
   count: number;
+  channelId: string;
 };
 
 export type MonthCount = {
