@@ -6,12 +6,13 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnnualHistory, HourCount, MonthCount } from "./hooks/services";
 import { Line, LineChart, Tooltip, XAxis } from "recharts";
+import AnnualReport from "./components/AnnualReport";
 
 interface ARProps {
   annualHistory: AnnualHistory | null;
 }
 
-function AnnualReport({ annualHistory }: ARProps) {
+function AnnualReport1({ annualHistory }: ARProps) {
   useEffect(() => {
     console.log(annualHistory);
   }, [annualHistory]);
@@ -31,13 +32,25 @@ function AnnualReport({ annualHistory }: ARProps) {
         {annualHistory?.top_10_watched &&
           annualHistory?.top_10_watched[0].count}{" "}
         times.
+        <img
+          src={
+            "https://img.youtube.com/vi/" +
+            annualHistory?.top_10_watched[0].title_id +
+            "/maxresdefault.jpg"
+          }
+        />
       </p>
       <p>Here comes to your top 10 most watched videos</p>
       {annualHistory?.top_10_watched?.map((title) => {
         return (
-          <div className={"flex	 flex-row justify-between py-2"}>
-            <p className={"text-left"}>{title.title}</p>
-            <p>{title.count} times</p>
+          <div key={title.title_id}>
+            <div className={"flex	 flex-row justify-between py-2"}>
+              <p className={"text-left"}>{title.title}</p>
+              <p>{title.count} times</p>
+            </div>
+            <img
+              src={"https://img.youtube.com/vi/" + title.title_id + "/1.jpg"}
+            />
           </div>
         );
       })}
@@ -50,7 +63,10 @@ function AnnualReport({ annualHistory }: ARProps) {
       <p>Let's check out the top Channel of 2023 in your history</p>
       {annualHistory?.top_10_channel?.map((channel) => {
         return (
-          <div className={"flex	 flex-row justify-between py-2"}>
+          <div
+            key={channel.channelId}
+            className={"flex	 flex-row justify-between py-2"}
+          >
             <p className={"text-left"}>{channel.channel}</p>
             <p>{channel.count} times</p>
           </div>
@@ -129,9 +145,7 @@ function App() {
         <Route
           path="2023"
           element={
-            <AnnualReport
-              annualHistory={annualHistory ? annualHistory : null}
-            />
+            <AnnualReport annualReport={annualHistory ? annualHistory : null} />
           }
         />
       </Routes>
