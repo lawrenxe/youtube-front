@@ -48,12 +48,13 @@ export const useUpload = (data: any) => {
 
   useEffect(() => {
     if (data != null) {
+      setLoading(true);
       axios({
         method: "POST",
         headers: {
           "Content-Type": "api/upload",
         },
-        url: "http://127.0.0.1:5000/api/upload",
+        url: "https://youtube-back-app-33cd6b26577b.herokuapp.com/api/upload",
         data: data,
       })
         .then((response) => {

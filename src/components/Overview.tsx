@@ -56,7 +56,7 @@ const Overview = ({ watch_count, title_count, top_10_watched }: OVProps) => {
           className=" mt-3 w-3/4 rounded-lg"
         />
         <h2
-          className="mt-3 inline-block break-all bg-gradient-to-r from-[#F4F269] via-[#A8D26D] to-[#5CB270] bg-clip-text text-xl font-bold text-transparent
+          className="mt-3 inline-block break-words bg-gradient-to-r from-[#F4F269] via-[#A8D26D] to-[#5CB270] bg-clip-text text-xl font-bold text-transparent
         "
         >
           {top_10_watched[0].title},

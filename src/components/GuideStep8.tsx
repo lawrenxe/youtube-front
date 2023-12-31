@@ -104,6 +104,9 @@ const GuideStep7 = ({ setAnnualHistory }: GS7Props) => {
           >
             {isReady ? `${file.name}  ◪` : "Select File ◪"}
           </h1>
+          {file && loading && (
+            <span className="loading loading-spinner loading-sm ml-5 bg-white"></span>
+          )}
 
           {isTypeErr ||
             (err && (
