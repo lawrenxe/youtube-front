@@ -7,19 +7,9 @@ import Transition from "./Transition";
 interface COVProps {
   channel_count: number;
   top_10_channel: ChannelCount[];
-  handleSectionChange: (id: string) => void;
 }
 
-const scrollToNext = (id: string) => {
-  const nextElement = document.getElementById(id);
-  if (nextElement) nextElement.scrollIntoView({ behavior: "smooth" });
-};
-
-const ChannelOverview = ({
-  channel_count,
-  top_10_channel,
-  handleSectionChange,
-}: COVProps) => {
+const ChannelOverview = ({ channel_count, top_10_channel }: COVProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
@@ -85,7 +75,6 @@ const ChannelOverview = ({
           color="yellow-400"
           text="Your Top Channels"
           toLink="report-5"
-          handleSectionChange={handleSectionChange}
         />
       </Transition>
     </div>

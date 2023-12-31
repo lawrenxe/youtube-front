@@ -50,9 +50,6 @@ const GuideStep6 = () => {
           toLink={"guide-9"}
           color={"green-500"}
           text={"I am back"}
-          handleSectionChange={function (id: string): void {
-            throw new Error("Function not implemented.");
-          }}
         />
       </Transition>
     </div>

@@ -5,10 +5,9 @@ import Transition from "./Transition";
 
 interface TTCProps {
   top_10_channel: ChannelCount[];
-  handleSectionChange: (id: string) => void;
 }
 
-const TopTenChannel = ({ top_10_channel, handleSectionChange }: TTCProps) => {
+const TopTenChannel = ({ top_10_channel }: TTCProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
@@ -59,12 +58,7 @@ const TopTenChannel = ({ top_10_channel, handleSectionChange }: TTCProps) => {
       </div>
 
       <Transition delay={4} time={3} loaded={loaded}>
-        <ReportButton
-          text="Next"
-          color="orange-500"
-          toLink="report-6"
-          handleSectionChange={handleSectionChange}
-        />
+        <ReportButton text="Next" color="orange-500" toLink="report-6" />
       </Transition>
     </div>
   );

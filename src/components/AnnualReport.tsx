@@ -16,8 +16,6 @@ interface ARProps {
 const AnnualReport = ({ annualReport }: ARProps) => {
   const [currentSection, setCurrentSection] = useState<string>("report-1");
 
-  const handleSectionChange = (index: string) => {};
-
   useEffect(() => {}, [currentSection]);
 
   const handleScroll = (e: React.UIEvent<HTMLInputElement>): void => {
@@ -50,7 +48,7 @@ const AnnualReport = ({ annualReport }: ARProps) => {
       className="max-h-screen snap-y snap-mandatory overflow-y-scroll no-scrollbar"
     >
       <AnnualReportSection bgColor="bg-gray-900" id="report-1">
-        <ReportWelcome handleSectionChange={handleSectionChange} />
+        <ReportWelcome />
       </AnnualReportSection>
 
       <AnnualReportSection bgColor="bg-red-500" id="report-2">
@@ -59,17 +57,13 @@ const AnnualReport = ({ annualReport }: ARProps) => {
             watch_count={annualReport?.watch_count}
             title_count={annualReport?.title_count}
             top_10_watched={annualReport?.top_10_watched}
-            handleSectionChange={handleSectionChange}
           />
         )}
       </AnnualReportSection>
 
       <AnnualReportSection bgColor="bg-blue-400" id="report-3">
         {annualReport && currentSection == "report-3" && (
-          <TopTenVideos
-            top_10_watched={annualReport.top_10_watched}
-            handleSectionChange={handleSectionChange}
-          />
+          <TopTenVideos top_10_watched={annualReport.top_10_watched} />
         )}
       </AnnualReportSection>
       <AnnualReportSection bgColor="bg-green-500" id="report-4">
@@ -77,24 +71,17 @@ const AnnualReport = ({ annualReport }: ARProps) => {
           <ChannelOverview
             channel_count={annualReport.channel_count}
             top_10_channel={annualReport.top_10_channel}
-            handleSectionChange={handleSectionChange}
           />
         )}
       </AnnualReportSection>
       <AnnualReportSection bgColor="bg-yellow-400" id="report-5">
         {annualReport && currentSection == "report-5" && (
-          <TopTenChannel
-            top_10_channel={annualReport.top_10_channel}
-            handleSectionChange={handleSectionChange}
-          />
+          <TopTenChannel top_10_channel={annualReport.top_10_channel} />
         )}
       </AnnualReportSection>
       <AnnualReportSection bgColor="bg-orange-500" id="report-6">
         {annualReport && currentSection == "report-6" && (
-          <Month
-            count_item_by_month={annualReport.count_item_by_month}
-            handleSectionChange={handleSectionChange}
-          />
+          <Month count_item_by_month={annualReport.count_item_by_month} />
         )}
       </AnnualReportSection>
       <AnnualReportSection bgColor="bg-red-500" id="report-7">
@@ -103,7 +90,6 @@ const AnnualReport = ({ annualReport }: ARProps) => {
             count_item_by_timeperiod={annualReport.count_items_by_timeperiod}
             count_item_by_hour={annualReport.count_item_by_hour}
             watch_count={annualReport.watch_count}
-            handleSectionChange={handleSectionChange}
           />
         )}
       </AnnualReportSection>

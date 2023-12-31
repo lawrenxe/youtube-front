@@ -8,7 +8,6 @@ interface TPProps {
   count_item_by_timeperiod: TimeCount[];
   count_item_by_hour: HourCount[];
   watch_count: number;
-  handleSectionChange: (id: string) => void;
 }
 
 const sortHour = (count_item_by_hour: HourCount[]) => {
@@ -19,7 +18,6 @@ export const TimePeriod = ({
   count_item_by_timeperiod,
   count_item_by_hour,
   watch_count,
-  handleSectionChange,
 }: TPProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
@@ -81,12 +79,7 @@ export const TimePeriod = ({
       </div>
 
       <Transition delay={9} time={3} loaded={loaded}>
-        <ReportButton
-          text="replay"
-          color="yellow-400"
-          toLink="report-1"
-          handleSectionChange={handleSectionChange}
-        />
+        <ReportButton text="replay" color="yellow-400" toLink="report-1" />
       </Transition>
     </div>
   );

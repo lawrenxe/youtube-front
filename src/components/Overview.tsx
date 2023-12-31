@@ -8,15 +8,9 @@ interface OVProps {
   watch_count: number;
   title_count: number;
   top_10_watched: TitleCount[];
-  handleSectionChange: (id: string) => void;
 }
 
-const Overview = ({
-  watch_count,
-  title_count,
-  top_10_watched,
-  handleSectionChange,
-}: OVProps) => {
+const Overview = ({ watch_count, title_count, top_10_watched }: OVProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
@@ -37,7 +31,6 @@ const Overview = ({
         <div className="flex flex-row items-end gap-x-2">
           <CountUp
             delay={1}
-            enableScrollSpy={true}
             start={title_count * 0.7}
             end={title_count}
             duration={2}
@@ -104,7 +97,6 @@ const Overview = ({
           text="Check your Top 10 Videos"
           color="blue-400"
           toLink="report-3"
-          handleSectionChange={handleSectionChange}
         />
       </Transition>
     </div>

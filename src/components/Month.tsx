@@ -14,13 +14,7 @@ import Transition from "./Transition";
 
 interface MProps {
   count_item_by_month: MonthCount[];
-  handleSectionChange: (id: string) => void;
 }
-
-const scrollToNext = (id: string) => {
-  const nextElement = document.getElementById(id);
-  if (nextElement) nextElement.scrollIntoView({ behavior: "smooth" });
-};
 
 const getMonthCounts = (monthCount: MonthCount[]): MonthCount[] => {
   const sortedMonthCount = [...monthCount];
@@ -51,7 +45,7 @@ const numberToMonth = (monthNumber: number): string => {
   }
 };
 
-const Month = ({ count_item_by_month, handleSectionChange }: MProps) => {
+const Month = ({ count_item_by_month }: MProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
@@ -154,12 +148,7 @@ const Month = ({ count_item_by_month, handleSectionChange }: MProps) => {
       </div>
 
       <Transition delay={11} time={3} loaded={loaded}>
-        <ReportButton
-          text="Next"
-          color="red-500"
-          toLink="report-7"
-          handleSectionChange={handleSectionChange}
-        />
+        <ReportButton text="Next" color="red-500" toLink="report-7" />
       </Transition>
     </div>
   );

@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReportButton from "./ReportButton";
 import Transition from "./Transition";
 
-interface RWProps {
-  handleSectionChange: (id: string) => void;
-}
-
-const ReportWelcome = ({ handleSectionChange }: RWProps) => {
+const ReportWelcome = () => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
@@ -23,12 +19,7 @@ const ReportWelcome = ({ handleSectionChange }: RWProps) => {
         </h1>
       </Transition>
       <Transition delay={1} time={3} loaded={loaded}>
-        <ReportButton
-          color="red-500"
-          toLink="report-2"
-          text="Jump in"
-          handleSectionChange={handleSectionChange}
-        />
+        <ReportButton color="red-500" toLink="report-2" text="Jump in" />
       </Transition>
     </div>
   );

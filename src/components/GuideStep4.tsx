@@ -35,14 +35,7 @@ const GuideStep4 = () => {
       </Transition>
 
       <Transition delay={4} time={3} loaded={loaded}>
-        <ReportButton
-          toLink={"guide-7"}
-          color={"green-500"}
-          text={"Next"}
-          handleSectionChange={function (id: string): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
+        <ReportButton toLink={"guide-7"} color={"green-500"} text={"Next"} />
       </Transition>
     </div>
   );

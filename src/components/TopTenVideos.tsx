@@ -5,10 +5,9 @@ import Transition from "./Transition";
 
 interface TTVProps {
   top_10_watched: TitleCount[];
-  handleSectionChange: (id: string) => void;
 }
 
-const TopTenVideos = ({ top_10_watched, handleSectionChange }: TTVProps) => {
+const TopTenVideos = ({ top_10_watched }: TTVProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);
@@ -60,12 +59,7 @@ const TopTenVideos = ({ top_10_watched, handleSectionChange }: TTVProps) => {
         </Transition>
       </div>
       <Transition delay={5} time={3} loaded={loaded}>
-        <ReportButton
-          text="Next"
-          toLink="report-4"
-          color="green-500"
-          handleSectionChange={handleSectionChange}
-        />
+        <ReportButton text="Next" toLink="report-4" color="green-500" />
       </Transition>
     </div>
   );
