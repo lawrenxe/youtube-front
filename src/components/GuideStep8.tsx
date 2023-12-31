@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Transition from "./Transition";
-import ReportButton from "./ReportButton";
 import { AnnualHistory, useUpload } from "../hooks/services";
 import { Link } from "react-router-dom";
 
@@ -11,7 +10,6 @@ interface GS7Props {
 const GuideStep7 = ({ setAnnualHistory }: GS7Props) => {
   const [loaded, setLoaded] = useState(false);
   const [isTypeErr, setTypeErr] = useState(false);
-  const [isOtherErr, setOtherErr] = useState(false);
   const [isReady, setReady] = useState(false);
   const [file, setFile] = useState<any>(null);
 
@@ -34,6 +32,8 @@ const GuideStep7 = ({ setAnnualHistory }: GS7Props) => {
   };
   const hiddenFileInput = useRef<HTMLInputElement | null>(null);
   const handleClick = (e: React.MouseEvent) => {
+    console.log(e);
+
     hiddenFileInput.current?.click();
   };
 

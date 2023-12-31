@@ -1,4 +1,3 @@
-import React from "react";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -51,7 +50,7 @@ const Clock = ({ data, watch_count }: CProps) => {
               border: "none",
               background: "none",
             }}
-            formatter={(value: number, name: string, props: any) => [
+            formatter={(value: number) => [
               ((value / watch_count) * 100).toFixed(2) + " %",
             ]}
           />

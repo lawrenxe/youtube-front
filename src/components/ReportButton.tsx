@@ -1,5 +1,3 @@
-import React from "react";
-
 const scrollToNext = (id: string) => {
   const nextElement = document.getElementById(id);
   if (nextElement) nextElement.scrollIntoView({ behavior: "smooth" });

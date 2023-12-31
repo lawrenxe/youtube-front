@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TitleCount } from "../hooks/services";
 import CountUp from "react-countup";
 import ReportButton from "./ReportButton";
 import Transition from "./Transition";
 
 interface OVProps {
-  watch_count: number;
   title_count: number;
   top_10_watched: TitleCount[];
 }
 
-const Overview = ({ watch_count, title_count, top_10_watched }: OVProps) => {
+const Overview = ({ title_count, top_10_watched }: OVProps) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = () => {
     setLoaded(true);

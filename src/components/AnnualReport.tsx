@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnnualHistory } from "../hooks/services";
 import ReportWelcome from "./ReportWelcome";
 import AnnualReportSection from "./AnnualReportSection";
@@ -54,7 +54,6 @@ const AnnualReport = ({ annualReport }: ARProps) => {
       <AnnualReportSection bgColor="bg-red-500" id="report-2">
         {annualReport && currentSection == "report-2" && (
           <Overview
-            watch_count={annualReport?.watch_count}
             title_count={annualReport?.title_count}
             top_10_watched={annualReport?.top_10_watched}
           />

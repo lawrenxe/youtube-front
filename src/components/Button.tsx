@@ -1,5 +1,3 @@
-import React from "react";
-
 interface BProps {
   text: string;
   link: string;
@@ -8,7 +6,7 @@ interface BProps {
 function Button({ text, link }: BProps) {
   return (
     <a
-      className="hover:shadow-solidShadowButton w-30 border-2 border-black px-2 py-1 text-black hover:text-black"
+      className="w-30 border-2 border-black px-2 py-1 text-black hover:text-black hover:shadow-solidShadowButton"
       href={link}
     >
       {text}

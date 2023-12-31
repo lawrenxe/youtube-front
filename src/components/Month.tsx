@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MonthCount } from "../hooks/services";
 import CountUp from "react-countup";
 import {
@@ -141,7 +141,7 @@ const Month = ({ count_item_by_month }: MProps) => {
                 border: "none",
                 background: "none",
               }}
-              formatter={(value, name, props) => [value + " plays"]}
+              formatter={(value) => [value + " plays"]}
             />
           </LineChart>
         </ResponsiveContainer>

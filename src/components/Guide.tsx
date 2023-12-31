@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AnnualReportSection from "./AnnualReportSection";
+
 import GuideSection from "./GuideSection";
 import { AnnualHistory } from "../hooks/services";
 import GuideWelcome from "./GuideWelcome";

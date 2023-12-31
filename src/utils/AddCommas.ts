@@ -1,5 +1,3 @@
-import React from "react";
-
 const addCommas = (number: number): string => {
   let numberString = number.toString();
   let result = "";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { ChannelCount } from "../hooks/services";
 import ReportButton from "./ReportButton";
