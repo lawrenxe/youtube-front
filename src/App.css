@@ -29,6 +29,10 @@
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   }
 
+  .wrongFile {
+    animation: shake 0.2s ease-in-out 0s 2;
+  }
+
   @media (min-width: 720px) {
     .gradient {
       --size: 500px;
@@ -53,6 +57,21 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
   }
 }
 

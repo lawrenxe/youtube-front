@@ -27,11 +27,11 @@ const GuideStep1 = () => {
         <h2 className="mt-10 text-xl font-bold text-white">
           Head to{" "}
           <a
-            className="text-xl font-bold text-white underline"
+            className="inline-block bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-200 bg-clip-text text-xl font-bold text-transparent  underline"
             href="https://takeout.google.com"
             target="_blank"
           >
-            Google Takeout
+            Google Takeout ►
           </a>{" "}
           and Log in with your Google Account.
         </h2>

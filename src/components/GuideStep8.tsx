@@ -107,7 +107,7 @@ const GuideStep7 = ({ setAnnualHistory }: GS7Props) => {
 
           {isTypeErr ||
             (err && (
-              <h1 className="text-md absolute text-sm text-yellow-500">
+              <h1 className="wrongFile text-md absolute text-sm font-medium text-yellow-500">
                 Ooops, wrong file type. Try again.
               </h1>
             ))}

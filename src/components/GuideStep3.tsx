@@ -25,7 +25,7 @@ const GuideStep3 = () => {
 
       <Transition delay={1} time={3} loaded={loaded}>
         <h2 className="mt-10 text-xl font-bold text-white">
-          Click "All YouTube data included"
+          Click "All YouTube data included".
         </h2>
       </Transition>
       <Transition delay={2} time={3} loaded={loaded}>

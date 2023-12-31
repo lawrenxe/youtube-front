@@ -24,7 +24,7 @@ const GuideStep6 = () => {
       </Transition>
       <Transition delay={1} time={3} loaded={loaded}>
         <h1 className={"text-xl font-bold text-transparent text-white"}>
-          You are one step away.
+          You are only one step away.
         </h1>
       </Transition>
 

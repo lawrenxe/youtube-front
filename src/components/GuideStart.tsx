@@ -14,7 +14,7 @@ const GuideStart = () => {
   return (
     <div>
       <Transition delay={0} time={3} loaded={loaded}>
-        <h1 className={"my-2 text-3xl font-bold text-white"}>
+        <h1 className="inline-block bg-gradient-to-r from-yellow-300 via-yellow-500 to-red-400 bg-clip-text text-3xl font-bold text-transparent">
           Before we get started,
         </h1>
       </Transition>

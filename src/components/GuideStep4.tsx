@@ -25,7 +25,7 @@ const GuideStep4 = () => {
 
       <Transition delay={1} time={3} loaded={loaded}>
         <h2 className="mt-10 text-xl font-bold text-white">
-          Click "Multiple formats", locate "history",
+          Click "Multiple formats", locate "history".
         </h2>
       </Transition>
       <Transition delay={2} time={3} loaded={loaded}>

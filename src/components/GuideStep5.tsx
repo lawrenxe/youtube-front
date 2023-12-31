@@ -30,7 +30,7 @@ const GuideStep5 = () => {
       </Transition>
       <Transition delay={2} time={3} loaded={loaded}>
         <h2 className="mt-5 text-xl font-bold text-white">
-          Don't make any changes, click "Create export."
+          Don't make any changes, click "Create export".
         </h2>
       </Transition>
 

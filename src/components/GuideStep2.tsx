@@ -25,7 +25,7 @@ const GuideStep2 = () => {
 
       <Transition delay={1} time={3} loaded={loaded}>
         <h2 className="mt-10 text-xl font-bold text-white">
-          Select "deselect all."
+          Select "Deselect all".
         </h2>
       </Transition>
       <Transition delay={2} time={3} loaded={loaded}>
