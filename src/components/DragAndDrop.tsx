@@ -19,12 +19,10 @@ function DragAndDrop({ setAnnualHistory }: DADProps) {
 
   useEffect(() => {
     if (response) {
-      console.log(response);
       setIsReady(true);
       setAnnualHistory(response);
     }
     if (err) {
-      console.log(err);
     }
   }, [response, err]);
 
@@ -41,30 +39,26 @@ function DragAndDrop({ setAnnualHistory }: DADProps) {
     }
   };
   const handleDragEnter = (e: any) => {
-    console.log("dragEnter");
     e.preventDefault();
     e.stopPropagation();
     setDragActive(true);
   };
 
   const handleDragLeave = (e: any) => {
-    console.log("dragLeave");
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
   };
 
   const handleDragOver = (e: any) => {
-    console.log("dragOver");
     e.preventDefault();
     e.stopPropagation();
     setDragActive(true);
   };
 
   const handleChange = (e: any) => {
-    console.log("File has been added");
     e.preventDefault();
-    console.log("File has been added");
+
     if (e.target.files && e.target.files[0]) {
       for (let i = 0; i < e.target.files["length"]; i++) {
         setFiles((prevState: any) => [...prevState, e.target.files[i]]);
@@ -87,9 +81,7 @@ function DragAndDrop({ setAnnualHistory }: DADProps) {
   //   setFiles(newArr);
   // };
 
-  useEffect(() => {
-    console.log("state Changed");
-  }, [dragActive]);
+  useEffect(() => {}, [dragActive]);
 
   return (
     <>

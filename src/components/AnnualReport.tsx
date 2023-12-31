@@ -18,9 +18,7 @@ const AnnualReport = ({ annualReport }: ARProps) => {
 
   const handleSectionChange = (index: string) => {};
 
-  useEffect(() => {
-    console.log(currentSection);
-  }, [currentSection]);
+  useEffect(() => {}, [currentSection]);
 
   const handleScroll = (e: React.UIEvent<HTMLInputElement>): void => {
     const sectionTops: { [key: string]: number } = {

@@ -7,15 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnnualHistory, HourCount, MonthCount } from "./hooks/services";
 import { Line, LineChart, Tooltip, XAxis } from "recharts";
 import AnnualReport from "./components/AnnualReport";
+import Guide from "./components/Guide";
 
 interface ARProps {
   annualHistory: AnnualHistory | null;
 }
 
 function AnnualReport1({ annualHistory }: ARProps) {
-  useEffect(() => {
-    console.log(annualHistory);
-  }, [annualHistory]);
+  useEffect(() => {}, [annualHistory]);
   return (
     <>
       <p>
@@ -140,7 +139,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<WelcomeCarousel setAnnualHistory={setAnnualHistory} />}
+          element={<Guide setAnnualHistory={setAnnualHistory} />}
         />
         <Route
           path="2023"

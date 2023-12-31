@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 @layer components {
-  .gallery {
-    overflow: hidden;
-    position: relative;
+  .guideBg {
+    --size: 250px;
+    --speed: 10s;
+    --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+    width: var(--size);
+    height: var(--size);
+    filter: blur(calc(var(--size) / 5));
+    background-image: linear-gradient(#ede342, #ff51eb 55%);
+    animation: rotate var(--speed) var(--easing) alternate infinite;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   }
 
   .gradient {
@@ -25,12 +33,27 @@
     .gradient {
       --size: 500px;
     }
+    .guideBg {
+      --size: 500px;
+    }
   }
   /* ... */
 }
 
 * {
   transition: all 0.25s ease-out;
+}
+
+@keyframes guideAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes rotate {

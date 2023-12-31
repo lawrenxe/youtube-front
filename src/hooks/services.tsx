@@ -59,11 +59,12 @@ export const useUpload = (data: any) => {
         .then((response) => {
           const res = response.data;
           setResponse(res.result);
+          setErr(null);
         })
         .catch((error) => {
           if (error.response) {
+            setResponse(null);
             setErr(error.response);
-            console.log(error.response);
           }
         })
         .finally(() => {

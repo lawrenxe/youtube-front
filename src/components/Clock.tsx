@@ -27,7 +27,7 @@ const Clock = ({ data, watch_count }: CProps) => {
           <PolarAngleAxis
             dataKey="hour"
             stroke="white"
-            fontSize={20}
+            fontSize={15}
             fontWeight={500}
             axisLine={false}
             tickLine={false}

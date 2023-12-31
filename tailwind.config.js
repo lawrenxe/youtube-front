@@ -3,6 +3,7 @@
 const plugin = require("tailwindcss/plugin");
 
 export default {
+  mode: "jit",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -23,8 +24,4 @@ export default {
       });
     }),
   ],
-  darkMode: "class", // Set darkMode to false
-  daisyui: {
-    themes: ["light"], // Specify only the light theme or your custom theme
-  },
 };

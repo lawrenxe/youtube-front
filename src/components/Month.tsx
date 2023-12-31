@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MonthCount } from "../hooks/services";
 import CountUp from "react-countup";
 import {
@@ -10,6 +10,7 @@ import {
   YAxis,
 } from "recharts";
 import ReportButton from "./ReportButton";
+import Transition from "./Transition";
 
 interface MProps {
   count_item_by_month: MonthCount[];
@@ -51,37 +52,62 @@ const numberToMonth = (monthNumber: number): string => {
 };
 
 const Month = ({ count_item_by_month, handleSectionChange }: MProps) => {
+  const [loaded, setLoaded] = useState(false);
+  const handleLoad = () => {
+    setLoaded(true);
+  };
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
   return (
     <div className="flex flex-col items-start px-10">
-      <div className="flex flex-row items-end">
-        <h1 className="text-xl font-medium text-white">In &nbsp;</h1>
-        <h1 className="inline-block bg-gradient-to-r from-yellow-100 via-yellow-200 to-yellow-300 bg-clip-text text-xl font-medium text-transparent text-white">
-          {numberToMonth(count_item_by_month[0].month)}
+      <Transition delay={0} time={3} loaded={loaded}>
+        <div className="flex flex-row items-end">
+          <h1 className="text-xl font-bold text-white">In &nbsp;</h1>
+          <h1 className="inline-block bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-400 bg-clip-text text-2xl font-bold text-transparent">
+            {numberToMonth(count_item_by_month[0].month)}
+          </h1>
+          <h1 className="text-xl font-bold text-white">, you watched</h1>
+        </div>
+      </Transition>
+      <Transition delay={1} time={3} loaded={loaded}>
+        <div className="flex flex-row items-end gap-x-2">
+          <CountUp
+            delay={1}
+            start={count_item_by_month[0].count * 0.7}
+            end={count_item_by_month[0].count}
+            duration={2}
+            className="text-3xl font-bold text-white"
+          />
+          <h1 className="text-xl font-bold text-white">videos.</h1>
+        </div>
+      </Transition>
+      <Transition delay={3} time={3} loaded={loaded}>
+        <h1 className="mt-5 text-xl font-bold text-white">
+          That's on average{" "}
         </h1>
-        <h1 className="text-xl font-medium text-white">, you watched</h1>
-      </div>
-      <div className="flex flex-row items-end gap-x-2">
-        <CountUp
-          start={count_item_by_month[0].count * 0.7}
-          end={count_item_by_month[0].count}
-          duration={2}
-          className="text-3xl font-bold text-white"
-        />
-        <h1 className="text-xl font-medium text-white">videos.</h1>
-      </div>
-      <h1 className="text-xl font-medium text-white">That's on average </h1>
-      <div className="flex-end flex items-end">
-        <h1 className="text-3xl font-medium text-white">
-          {(count_item_by_month[0].count / 30).toFixed(1)}&nbsp;
-        </h1>
-        <h1 className="text-xl font-medium text-white"> videos per day</h1>
-      </div>
+      </Transition>
+      <Transition delay={4} time={3} loaded={loaded}>
+        <div className="flex-end flex items-end">
+          <h1 className="inline-block bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-400 bg-clip-text text-3xl font-bold text-transparent">
+            {(count_item_by_month[0].count / 30).toFixed(1)}&nbsp;
+          </h1>
+          <h1 className="text-xl font-bold text-white"> videos per day</h1>
+        </div>
+      </Transition>
 
-      <h2 className="text-xl font-medium text-white">
-        Let's break down to each month.
-      </h2>
+      <Transition delay={7} time={3} loaded={loaded}>
+        <h2 className="mt-5 text-xl font-bold text-white">
+          Let's break down to each month.
+        </h2>
+      </Transition>
+
       <div className="my-5 flex aspect-video w-full items-center justify-center border-black ">
-        <ResponsiveContainer>
+        <ResponsiveContainer
+          className={`${loaded ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: "8s", transitionDuration: "3s" }}
+        >
           <LineChart
             data={getMonthCounts(count_item_by_month)}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -105,7 +131,8 @@ const Month = ({ count_item_by_month, handleSectionChange }: MProps) => {
             <Line
               type="monotone"
               dataKey="count"
-              stroke="#f87171"
+              stroke="#fcd34d
+              "
               strokeWidth={5}
             />
 
@@ -125,12 +152,15 @@ const Month = ({ count_item_by_month, handleSectionChange }: MProps) => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <ReportButton
-        text="Next"
-        color="red-500"
-        toLink="report-7"
-        handleSectionChange={handleSectionChange}
-      />
+
+      <Transition delay={11} time={3} loaded={loaded}>
+        <ReportButton
+          text="Next"
+          color="red-500"
+          toLink="report-7"
+          handleSectionChange={handleSectionChange}
+        />
+      </Transition>
     </div>
   );
 };

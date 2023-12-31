@@ -5,14 +5,14 @@ interface TProps {
   delay: number;
   loaded: boolean;
   children: ReactNode;
+  className?: string;
 }
 
-const Transition = ({ time, delay, children, loaded }: TProps) => {
+const Transition = ({ time, delay, children, loaded, className }: TProps) => {
   return (
     <div
-      className={`${
-        loaded ? "opacity-100" : "opacity-0"
-      }  duration-[${time}s] delay-${delay}`}
+      className={`${loaded ? "opacity-100" : "opacity-0"} ${className}`}
+      style={{ transitionDelay: `${delay}s`, transitionDuration: `${time}s` }}
     >
       {children}
     </div>

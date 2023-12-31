@@ -19,7 +19,7 @@ const ReportButton = ({
 }: RBProps) => {
   return (
     <button
-      className={`mt-5 rounded-xl border-2 bg-${color} px-5 py-0 text-lg font-medium text-white`}
+      className={`mt-5 rounded-xl border-2 bg-${color} px-5 py-0 text-lg font-bold text-white`}
       onClick={() => {
         scrollToNext(toLink);
         handleSectionChange(toLink);
