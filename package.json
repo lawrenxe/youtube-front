@@ -10,9 +10,6 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "engines": {
-    "node": "12.11.1"
-    },
   "dependencies": {
     "@material-tailwind/react": "^2.1.5",
     "autoprefixer": "^10.4.16",
