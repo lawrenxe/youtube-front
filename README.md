@@ -2,6 +2,13 @@
 
 A web app that reads the YouTube watch history from Google Takeout and generate a tailored Annual Report for user.
 
+  <div style="display: flex;">
+    <img src="public/01.PNG"  width="20%">
+    <img src="public/02.PNG"  width="20%">
+    <img src="public/03.PNG"  width="20%">
+    <img src="public/04.PNG"  width="20%">
+  </div>
+
 ## Overview
 
 This web app will guide users step by step to get their YouTube watch history from Google Takeout, and generate a Annual Report with a user-friendly analytics that recaps user's watch history with YouTube.
